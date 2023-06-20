@@ -1,0 +1,386 @@
+/* CSS Document */
+
+/**************/
+/* CSS REMEDY */
+/**************/
+
+*, *::after, *::before {
+  box-sizing:border-box;  
+}
+
+button:not(:disabled), summary {
+	cursor: pointer;
+}
+
+/*********************/
+/* CUSTOM PROPERTIES */
+/*********************/
+
+:root {
+	--color-text:#eee;
+	--color-background:#FA6400;
+	--band-animatie: silver;
+	--color-band: #152028;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--color-text:#eee;
+		--color-background: #152028;
+		--band-animatie: #CECECE;
+		--color-band: #5F5F5F;
+	}
+}
+
+@font-face {
+	font-family: "Gilroy-bold";
+	src: url("../fonts/Gilroy-ExtraBold_933e24b9.woff2");
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Gilroy-light";
+	src: url("../fonts/Gilroy-Regular_08bbb75e.woff2");
+	font-style: normal;
+}
+
+/****************/
+/* JOUW STYLING */
+/****************/
+
+body {
+  color:var(--color-text);
+  background-color:var(--color-background);
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+}
+
+h1{
+	font-size: 5em;
+	position: relative;
+	font-size: clamp(1em, 10vmin, 5em);
+}
+
+span{
+	position: relative;
+	font-family: "Gilroy-bold";
+}
+
+span:nth-of-type(5), span:nth-of-type(6), span:nth-of-type(7), span:nth-of-type(8){
+	font-family: "Gilroy-light";
+}
+
+span:nth-of-type(5)::before, span:nth-of-type(5)::after, span:nth-of-type(7)::before, span:nth-of-type(7)::after, span:nth-of-type(8)::before, span:nth-of-type(8)::after{
+	content: "";
+	position: absolute;
+	width: .13em;
+	height: .13em;
+	border-radius: 50%;
+}
+
+/****************/
+/* Span 1234 auto */
+/****************/
+
+@keyframes auto{
+	0%{
+		left: 0;
+	}
+	3%{
+		left: 0;
+	}
+	5%{
+		left: .2em;
+		transform: rotate(90deg);
+	}
+	7%{
+		left: .2em;
+		transform: rotate(90deg);
+	}
+	10%{
+		left: -.1em;
+	}
+	17%{
+		left: -.2em;
+	}
+	40%{
+		left: -.3em
+	}
+	50%{
+		left: -.3em;
+	}
+	55%{
+		left: .7em;
+	}
+	71%{
+		left: .7em;
+	}
+	73%{
+		left: .3em;
+	}
+	80%{
+		left: .1em;
+	}
+	95%{
+		left: -10em;
+	}
+	100%{
+		left: 0;
+	}
+}
+
+h1:hover span:nth-of-type(-n + 3){
+	animation: auto 3s linear 0s 1;
+}
+
+/****************/
+/* Span 4 */
+/****************/
+
+@keyframes wiel{
+  0% {
+    transform:rotate(0turn);
+		opacity: 1;
+  }
+	100%{
+		transform:rotate(5turn);
+		opacity: 1;
+	}
+}
+
+@keyframes band{
+	0%{
+		left: 0;
+		color: var(--color-text);
+	}
+	3%{
+		left: 0;
+	}
+	5%{
+		left: .3em;
+		transform: rotate(90deg);
+	}
+	7%{
+		left: .3em;
+		transform: rotate(90deg);
+	}
+	10%{
+		left: -.1em;
+		color: var(--color-band);
+	}
+	17%{
+		left: -.2em;
+	}
+	40%{
+		left: -.3em
+	}
+	50%{
+		left: -.3em;
+	}
+	55%{
+		left: .7em;
+	}
+	71%{
+		left: .7em;
+	}
+	73%{
+		left: .3em;
+	}
+	80%{
+		left: .1em;
+	}
+	90%{
+		color: var(--color-band);
+	}
+	95%{
+		left: -10em;
+	}
+	100%{
+		left: 0;
+			color: var(--color-text);
+		}
+}
+
+span:nth-of-type(4){
+	position: relative;
+}
+
+span:nth-of-type(4)::before{
+	opacity: 0;
+	content: "";
+	position: absolute;
+	width: .25em;
+	height: .25em;
+	border-radius: 50%;
+	top: .4em;
+	left: .18em;
+	background-image:conic-gradient(var(--band-animatie) 0deg 25deg, var(--color-background) 25deg 72deg, var(--band-animatie) 72deg 97deg, var(--color-background) 97deg 144deg, var(--band-animatie) 144deg 169deg, var(--color-background) 169deg 216deg, var(--band-animatie) 216deg 241deg, var(--color-background) 241deg 288deg, var(--band-animatie) 288deg 313deg, var(--color-background) 313deg 360deg);
+}
+
+h1:hover span:nth-of-type(4){
+	animation: band 3s linear 1;
+}
+
+h1:hover span:nth-of-type(4)::before{
+	animation: wiel 3s ease-in-out .2s 1;
+}
+
+h1:hover span:nth-of-type(4)::after{
+	animation: wiel 3s ease-in-out .2s 1;
+}
+
+span:nth-of-type(4)::after{
+	opacity: 0;
+	content: "";
+	position: absolute;
+	width: .07em;
+	height: .07em;
+	background-color: var(--band-animatie);
+	top: .49em;
+	left: .26em;
+	border-radius: 50%;
+}
+
+/****************/
+/* Span 5 */
+/****************/
+
+span:nth-of-type(5)::after{
+	top: .26em;
+	left: .125em;
+	background-color: var(--color-text);
+}
+
+span:nth-of-type(5)::before{
+	top: .25em;
+	left: .18em;
+	background-color: var(--color-background);
+}
+
+/****************/
+/* Span 7 */
+/****************/
+
+span:nth-of-type(7)::after{
+	top: .68em;
+	left: .23em;
+	background-color: var(--color-text);
+}
+
+span:nth-of-type(7)::before{
+	top: .682em;
+	left: .19em;
+	background-color: var(--color-background);
+}
+
+/****************/
+/* Span 8 */
+/****************/
+
+span:nth-of-type(8)::after{
+	top: .2em;
+	left: .37em;
+	background-color: var(--color-text);
+}
+
+span:nth-of-type(8)::before{
+	top: .7em;
+	left: .378em;
+	background-color: var(--color-text);
+}
+
+/****************/
+/* Span 5678 */
+/****************/
+
+@keyframes disk{
+	0%{
+		left: 0;
+	}
+	5%{
+		left: 0em;
+	}
+	7%{
+		left: 0em;
+	}
+	10%{
+		left: .2em;
+	}
+	17%{
+		left: .3em;
+	}
+	52%{
+		left: .43em;
+	}
+	53%{
+		left: .43em;
+	}
+	57%{
+		left: .9em;
+	}
+	63%{
+		left: 1em;
+	}
+	68%{
+		left: .3em;
+	}
+	73%{
+		left: .2em
+	}
+	100%{
+		left: 0;
+	}
+}
+
+h1:hover span:nth-of-type(n + 5){
+	animation: disk 3s linear .1s 1;
+}
+
+/****************/
+/* prefers reduced motion */
+/****************/
+
+@media (prefers-reduced-motion: reduce) {
+	h1:hover span:nth-of-type(1){
+		animation: auto 10s linear 0s 1 paused;
+	}
+	
+	h1:hover span:nth-of-type(2){
+		animation: auto 10s linear 0s 1 paused;
+	}
+	
+	h1:hover span:nth-of-type(3){
+		animation: auto 10s linear 0s 1 paused;
+	}
+
+	h1:hover span:nth-of-type(4){
+		animation: band 10s linear 1 paused;
+	}
+	
+	h1:hover span:nth-of-type(4)::before{
+		animation: wiel 10s ease-in-out .2s 1 paused;
+	}
+	
+	h1:hover span:nth-of-type(4)::after{
+		animation: wiel 10s ease-in-out .2s 1 paused;
+	}
+
+	h1:hover span:nth-of-type(5){
+	animation: disk 10s linear .1s 1 paused;
+	}
+
+	h1:hover span:nth-of-type(6){
+	animation: disk 10s linear 0.1s 1 paused;
+	}
+
+	h1:hover span:nth-of-type(7){
+	animation: disk 10s linear .1s 1 paused;
+	}
+
+	h1:hover span:nth-of-type(8){
+	animation: disk 10s linear .1s 1 paused;
+	}
+}

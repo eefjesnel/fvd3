@@ -1,0 +1,410 @@
+/* CSS Document */
+
+/*********/
+/* FONTS */
+/*********/
+@font-face {
+	font-family: 'karla-light';
+	src: url('../fonts/4UaGrENHsxJlGDuGo1OIlL3Owp5eKQtG.woff2') format('woff2');
+	font-weight: 100;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "karla";
+	src: url('../fonts/4UaGrENHsxJlGDuGo1OIlL3Owp5eKQtG.woff2') format('woff2');
+	font-weight: 500;
+	font-style: normal;
+}
+
+
+
+
+/**************/
+/* CSS REMEDY */
+/**************/
+
+*, *::after, *::before {
+  box-sizing:border-box;  
+}
+
+button:not(:disabled), summary {
+	cursor: pointer;
+}
+
+
+
+
+
+/*********************/
+/* CUSTOM PROPERTIES */
+/*********************/
+
+:root {
+	/* startje */
+	--donker:#111;
+	--licht: white;
+	--achtergrond:#eee;
+	--accent: #F3B103;
+	--accent2: #4554B4;
+	--text: #111;
+}
+
+/* THEMA DONKER */
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--donker:#111;
+		--light: #eee;
+		--achtergrond: #4A4A4A;
+		--accent: #F3B103;
+		--accent2: #4554B4;
+		--text: #ffffff;
+	}
+}
+
+
+
+
+
+
+/****************/
+/* JOUW STYLING */
+/****************/
+
+/* algemene styling */
+
+body {
+  background-color:var(--achtergrond);
+	margin: 0;
+	font-family: "karla";
+}
+
+section{
+	display: flex;
+	justify-content: center;
+}
+
+button{
+	border: none;
+	border-radius: 5px;
+	background-color: var(--donker);
+	color: white;
+	font-family: "karla-light";
+	cursor: pointer;
+}
+
+h1, h2{
+	color: var(--text);
+	margin-bottom: .5em;
+	font-family: "karla";
+	letter-spacing: 3px;
+	font-size: clamp(.8em, 3vmin, 1.4em); 
+}
+
+/* header styling. De header heeft flex om het logo in het midden te plaatsen. */
+
+header{
+	background-color: var(--donker);
+	display: flex;
+	justify-content: center;
+	margin-bottom: 2em;
+}
+
+header img{
+	width: 6em;
+}
+
+/* kledingkast section. Grid gebruikt en met flex het grid in het midden geplaatst.
+Zelf een slider gemaakt. Dit heb ik gekopieerd uit code dat ik eerder had geschreven en wat aangepast. */
+
+section:nth-of-type(1){
+	flex-direction: column;
+	align-items: center;
+}
+
+/* Van wie is de kledingkast. Je kan het invullen via een form field. */
+
+section:nth-of-type(2n -1) div{
+	/* https://www.w3schools.com/cssref/sel_nth-of-type.php en https://developer.mozilla.org/en-US/docs/Web/CSS/:nth-child  selector 2n -1 komt hier vandaan. */
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+
+
+section:nth-of-type(1) div form {
+	display: flex;
+}
+
+/* De states van het textfield */
+
+section:nth-of-type(1) div input{
+	margin-left: 1em;
+	border: 1px solid var(--donker);
+	border-radius: 5px;
+	font-family: "karla";
+}
+
+section:nth-of-type(1) div input:hover{
+	border: 1px solid var(--accent);
+	transition: ease-in-out;
+}
+
+section:nth-of-type(1) div input:active{
+	border: 1px solid var(--accent);
+}
+
+section:nth-of-type(1) div input:focus{
+	border: 1px double var(--accent2);
+}
+
+/* De states van de submit button om de naam te versturen*/
+
+section:nth-of-type(1) button{
+	padding: 0 1em;
+	font-size: .8em;
+	margin-left: 1em;
+}
+
+section:nth-of-type(1) div form button:hover{
+	background-color: var(--accent);
+	transition: ease-in-out;
+}
+
+section:nth-of-type(1) div form button:active{
+	background-color: var(--accent);
+}
+
+section:nth-of-type(1) div form button:focus{
+	border: 1px double var(--accent2);
+}
+
+/* list kledingkast styling: de lijst met alle kledingstukken waaruit de gebruiker kleding kan droppen in de outfit lijst. */
+
+section:nth-of-type(1) ul{
+	margin-top: 1em;
+	padding: 5vw;
+	list-style-type: none;
+	display: grid;
+	grid-row-gap: 1em;
+	/* https://codepen.io/thiagopiacentini/pen/YzpbdLr  grid clamp zodat het mooi in elkaar overloopt. */
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: clamp(.5rem, 1vw, 3rem);
+  max-width: 100%;
+}
+
+/* Section 2 styling buttons vorige en volgende */
+
+section:nth-of-type(2) button{
+	padding: .3em 0;
+	width: 7em;
+	margin: 0;
+}
+
+section:nth-of-type(2) button:active{
+	background-color: var();
+}
+
+section:nth-of-type(2) button:nth-of-type(2){
+	margin-left: 1em;
+}
+
+/* section 3 list outfit styling */
+
+section:nth-of-type(3){
+	align-items: center;
+	flex-direction: column;
+	margin-top: 2.5em
+}
+
+section:nth-of-type(3) ul{
+	background-color: white;
+	height: 14em;
+	width: 90vw;
+	border-radius: .5em;
+	display: flex;
+	align-items: center;
+	padding: 1em;
+	border: 1px grey dashed;
+	list-style-type: none;
+	overflow: scroll;
+	gap: 20px;
+}
+
+
+@keyframes confetti{
+	0%{
+		border-color: #ff0099;
+		border: solid 3px;
+	}
+	13%{
+		border-color: #ff0000;
+	}
+	27%{
+		border-color: #ff6000;
+	}
+	40%{
+		border-color: #ffd800;
+	}
+	52%{
+		border-color: #6fe600;
+	}
+	65%{
+		border-color: #00e6ce;
+	}
+	82%{
+		border-color: #008cff;
+	}
+	100%{
+		border-color: #a000ff;
+		border: solid 3px;
+	}
+}
+
+section:nth-of-type(3) ul.confetti{
+	animation: confetti 1s infinite;
+	/* background: rgb(255,103,194); */
+	/* background: linear-gradient(170deg, rgba(255,103,194,1) 0%, rgba(255,0,0,1) 14%, rgba(255,96,0,1) 29%, rgba(255,216,0,1) 44%, rgba(111,230,0,1) 59%, rgba(0,230,206,1) 74%, rgba(0,140,255,1) 89%, rgba(160,0,255,1) 100%); */
+}
+
+section:nth-of-type(3) ul div p{
+	/* https://www.w3schools.com/cssref/pr_text_white-space.php */
+	overflow: hidden;
+	white-space: nowrap;
+	color: var(--text);
+}
+
+/* WAAROM WERKT DIT NIET???? */
+main section:nth-of-type(2) ul:empty:after{
+	content: 'sleep items in dit vak en maak jouw outfit';
+	font-size: .6em;
+	color: grey;
+}
+/* WAAROM WERKT DIT NIET???? */
+
+/* algemene list item styling. Geld voor alle list items */
+
+section ul li{
+	padding: 0;
+	margin: 0;
+}
+section:nth-of-type(1) ul .kledingstuk{
+	display: none;
+}
+
+section:nth-of-type(1) ul .toonKledingstuk{
+	display: block;
+}
+
+section ul li img{
+	width: 6em;
+	height: 6em;
+}
+
+section ul li div{
+	flex-direction: column;
+}
+
+section ul li div p{
+	font-size: .6em;
+	margin-top: 0;
+	color: var(--text);
+	font-family: 'karla-light';
+}
+
+/* cursor states voor alle list items */
+
+li {
+	cursor: grab;
+}
+
+li.sortable-ghost {
+	cursor:grabbing;
+}
+
+/* Section 4 styling button */
+
+section:nth-of-type(4){
+	margin-bottom: 5em;
+}
+
+section:nth-of-type(4) button:nth-of-type(1){
+	background-color: var(--accent);
+	padding: .5em 1em;
+	font-size: 1.2em;
+}
+
+section:nth-of-type(4) button:nth-of-type(2){
+	padding: .5em 1em;
+
+}
+
+
+
+
+
+
+/* MEDIA QUERY DESKTOP */
+@media only screen and (min-width: 600px) {
+  section:nth-of-type(1) ul .kledingstuk{
+		display: block;
+	}
+	.sliderKnoppen{
+		display: none;
+	}
+
+	section:nth-of-type(2) button{
+		display: none;
+	}
+
+	section:first-of-type ul{
+		margin: 0;
+		padding-bottom: 2em;
+	}
+
+	section:nth-of-type(3) ul{
+		width: 70vw;
+	}
+
+}
+
+/* MEDIA QUERY DESKTOP */
+@media only screen and (max-width: 600px) {
+	section:first-of-type ul li img{
+		width: 200px;
+		height: auto;
+	}
+
+	section:first-of-type ul li p{
+		font-size: 1em;
+	}
+
+	section:first-of-type ul{
+		height: 250px
+	}
+
+	section:nth-of-type(3) ul{
+		width: 90vw;
+	}
+
+
+}
+
+
+.hide{
+	/* https://www.w3schools.com/css/css_important.asp */
+	display: none !important;
+}
+
+
+
+
+/* REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce){
+	section:nth-of-type(3) ul.confetti{
+		animation: confetti 1s infinite paused;
+	}
+}

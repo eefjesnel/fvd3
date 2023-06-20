@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="nl">
+	
+<head>
+	<meta charset="UTF-8">
+	<meta name="author" content="jouw naam">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<title>Opdracht 2: Interactie galore - Frontend voor Designers</title>
+	
+	<link href="styles/style.css" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+</head>
+
+<body>
+	<header>
+		<img src="images/carharttlogotransparantwit.png" alt="">
+	</header>
+
+	<main>
+		<section>
+			<div>
+				<h1>Kledingkast van: <div></div></h1>
+				<form action="">
+					<input type="text" id="naamKledingkast" name="fname">
+					<button type="submit" form="form1" id="verzenden" value="Submit" onclick="verzendNaam()">Opslaan</button>
+				</form>
+			</div>
+
+			<ul>
+				<li class="kledingstuk">
+					<div>
+						<img src="images/signature-t-shirt.jpeg" alt="">
+						<p>Signature T-shirt</p>
+					</div>
+				</li>
+				<li class="kledingstuk">
+					<div>
+						<img src="images/chase-sweat-short.jpeg" alt="">
+						<p>Chase sweat short</p>
+					</div>
+				</li>
+				<li class="kledingstuk">
+					<div>
+						<img src="images/heston-keychain.jpeg" alt="">
+						<p>Heston keychain</p>
+					</div>
+				</li>
+				<li class="kledingstuk">
+					<div>
+						<img src="images/madison-shirt.jpeg" alt="">
+						<p>Madison shirt</p>
+					</div>
+				</li>
+				<li class="kledingstuk">
+					<div>
+						<img src="images/single-knee-short.jpeg" alt="">
+						<p>Single knee short</p>
+					</div>
+				</li>
+				<li class="kledingstuk">
+					<div>
+						<img src="images/nash-dk-pant.jpeg" alt="">
+						<p>Nash DK pant</p>
+					</div>
+				</li>
+				<li class="kledingstuk">
+					<div>
+						<img src="images/carhartt-wip-x-suicoke.jpeg" alt="">
+						<p>Wip x suicoke</p>
+					</div>
+				</li>
+				<li class="kledingstuk">
+					<div>
+						<img src="images/bolton-shirt-liberty.jpeg" alt="">
+						<p>Bolton shirt liberty</p>
+					</div>
+				</li>
+				<li class="kledingstuk">
+					<div>
+						<img src="images/carhartt-wip-coffee.jpeg" alt="">
+						<p>Wip coffee shirt</p>
+					</div>
+				</li>
+				<li class="kledingstuk">
+					<div>
+						<img src="images/regular-cargo-pant.jpeg" alt="">
+						<p>Regular cargo pant</p>
+					</div>
+				</li>
+				<li class="kledingstuk">
+					<div>
+						<img src="images/duster-sweat-pant.jpeg" alt="">
+						<p>Duster sweat pant</p>
+					</div>
+				</li>
+				<li class="kledingstuk">
+					<div>
+						<img src="images/carhartt-socks-tamarind.jpeg" alt="">
+						<p>Socks tamarind</p>
+					</div>
+				</li>
+				<li class="kledingstuk">
+					<div>
+						<img src="images/og-santa-fe-jacket.jpeg" alt="">
+						<p>OG santa fe jacket</p>
+					</div>
+				</li>
+				<li class="kledingstuk">
+					<div>
+						<img src="images/bib-overall.jpeg" alt="">
+						<p>Bib overall</p>
+					</div>
+				</li>
+				<li class="kledingstuk">
+					<div>
+						<img src="images/madison-sweater.jpeg" alt="">
+						<p>Madison sweater</p>
+					</div>
+				</li>
+				<li class="kledingstuk">
+					<div>
+						<img src="images/carhartt-wip-coffee-mug.jpeg" alt="">
+						<p>Wip coffee mug</p>
+					</div>
+				</li>
+				<li class="kledingstuk">
+					<div>
+						<img src="images/heart-patch-sweat.jpeg" alt="">
+						<p>Heart patch sweat</p>
+					</div>
+				</li>
+				<li class="kledingstuk">
+					<div>
+						<img src="images/hooded-american-script-sweatshirt.jpeg" alt="">
+						<p>American script sweat</p>
+					</div>
+				</li>
+				<li class="kledingstuk">
+					<div>
+						<img src="images/terrell-sk-short.jpeg" alt="">
+						<p>Terrell SK short</p>
+					</div>
+				</li>
+				<li class="kledingstuk">
+					<div>
+						<img src="images/colston-short.jpeg" alt="">
+						<p>Colston short</p>
+					</div>
+				</li>
+				<li class="kledingstuk">
+					<div>
+						<img src="images/american-script-jacket.jpeg" alt="">
+						<p>American script jacket</p>
+					</div>
+				</li>
+			</ul>
+		</section>
+		
+		<section>
+			<!-- section:nth-of-type(2) -->
+			<button onclick="vorige()">Vorige </button>
+			<button onclick="volgende()">Volgende</button>
+		</section>
+
+
+		<section>
+			<!-- section:nth-of-type(3) -->
+			<h2>Mijn geselecteerde outfit</h2>
+			<ul>
+			</ul>
+		</section>
+
+		<section>
+			<!-- section:nth-of-type(3) -->
+			<button id="kiesOufit" type="submit"  onclick="kiesOutfit()">Dit is mijn outfit!</button>
+			<button id="wijzigOutfit" type="submit" class="hide" onclick="wijzigOutfit()">Wijzig outfit</button>
+		</section>
+
+</main>	
+	<!-- sortable js -->
+	<script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+	<script defer src="scripts/script.js"></script>
+</body>
+	
+</html>
+
+
